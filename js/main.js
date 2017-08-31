@@ -70,7 +70,7 @@ const contractEvents = {
         
         console.log(this.parkContract);
         console.log(this.contractInstance);
-        consoel.log(web3.eth.defaultAccount);
+        console.log(web3.eth.defaultAccount);
         //parkInit();
     },
     
