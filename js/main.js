@@ -70,5 +70,14 @@ const contractEvents = {
         
         console.log(this.parkContract);
         console.log(this.contractInstance);
+        consoel.log(web3.eth.defaultAccount);
+        //parkInit();
+    },
+    
+    parkInit: function() {
+        let licensePlate = document.getElementById('plate').value;
+        let e = document.getElementById('regio');
+        let regio = e.options[e.selectedIndex].value;
+        let ether = document.getElementById('ether').value;
     }
 }
