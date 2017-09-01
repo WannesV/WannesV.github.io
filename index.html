@@ -2,12 +2,15 @@
 <html>
     <head>
         <title>Parkeren</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
         <script src="js/main.js"></script>
     </head>
 <body>
 
 <h1>Parkeren</h1>
-<form id="parking" method="get">
+<form id="parking" method="get" onsubmit="return false">
     Licenseplate:
     <input type="text" id="plate"><br>
     Regio:
@@ -15,9 +18,9 @@
         <option value="1">1</option>
         <option value="2">2</option>
     </select><br>
-    Ether: 
-    <input type="number" id="ether"><br>
-    <input type="submit">
+    Wei: 
+    <input type="number" id="wei"><br>
+    <input type="submit" id="submitBtn">
 </form>
 <p>Test3</p>
 </body>

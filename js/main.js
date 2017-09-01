@@ -72,31 +72,25 @@ const contractEvents = {
         console.log(this.parkContract);
         console.log(this.contractInstance);
         console.log(web3.eth.accounts);
+        web3.eth.defaultAccount = "0x4219473B52c3D8946057Ed7Ceec851B78d319D74";
         console.log(web3.eth.defaultAccount);
         web3.eth.getBalance("0x4219473B52c3D8946057Ed7Ceec851B78d319D74", function (error, value) {
             console.log(error, value);
         });
-        //parkInit();
-        this.contractInstance.checkRecent("test", function (error, value) {
-            console.log(error, value);
-        });
-        this.contractInstance.park("test", "regio12", {value: 200, gas: 2000}, function(err, result){ 
-            console.log(error, value);
+        this.submitInit();
+    },
+
+    submitInit: function () {
+        $('#submitBtn').on('click', function (event) {
+            let plate = document.getElementById('plate').value;
+            let e = document.getElementById('regio');
+            let regio = e.options[e.selectedIndex].value;
+            let wei = document.getElementById('wei').value;
+
+            contractEvents.contractInstance.park(plate, regio, {value: wei, gas: 2000}, function(err, result){ 
+                console.log(error, value);
+            });
         });
     },
-    
-    parkInit: function() {
-        let licensePlate = document.getElementById('plate').value;
-        let e = document.getElementById('regio');
-        let regio = e.options[e.selectedIndex].value;
-        let ether = document.getElementById('ether').value;
-        
-        
-    },
-    
-    test: function() {
-        this.contractInstance.checkRecent("test", function (error, value) {
-            console.log(error, value);
-        })
-    }
+
 }
