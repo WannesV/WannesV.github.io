@@ -54,8 +54,6 @@ window.addEventListener('load', function () {
     if (typeof web3 !== 'undefined') {
         // Use Mist/MetaMask's provider
         window.web3 = new Web3(web3.currentProvider);
-        var test = window.web3.eth.defaultAccount;
-        console.log(test);
 
     } else {
         console.log('No web3? You should consider trying MetaMask!');
@@ -82,9 +80,9 @@ const contractEvents = {
         this.contractInstance.checkRecent("test", function (error, value) {
             console.log(error, value);
         });
-        /*this.contractInstance.park("test", "regio12", {value: 200, gas: 2000}, function(err, result){ 
+        this.contractInstance.park("test", "regio12", {value: 200, gas: 2000}, function(err, result){ 
             console.log(error, value);
-        });*/
+        });
     },
     
     parkInit: function() {
