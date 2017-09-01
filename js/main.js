@@ -54,11 +54,14 @@ window.addEventListener('load', function () {
     if (typeof web3 !== 'undefined') {
         // Use Mist/MetaMask's provider
         window.web3 = new Web3(web3.currentProvider);
+        var test = window.web3.eth.defaultAccount;
+        console.log(test);
+
     } else {
         console.log('No web3? You should consider trying MetaMask!');
         // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     }
-
+    
     // Now you can start your app & access web3 freely:
     contractEvents.init();
 });
@@ -70,8 +73,18 @@ const contractEvents = {
         
         console.log(this.parkContract);
         console.log(this.contractInstance);
+        console.log(web3.eth.accounts);
         console.log(web3.eth.defaultAccount);
+        web3.eth.getBalance("0x4219473B52c3D8946057Ed7Ceec851B78d319D74", function (error, value) {
+            console.log(error, value);
+        });
         //parkInit();
+        this.contractInstance.checkRecent("test", function (error, value) {
+            console.log(error, value);
+        });
+        /*this.contractInstance.park("test", "regio12", {value: 200, gas: 2000}, function(err, result){ 
+            console.log(error, value);
+        });*/
     },
     
     parkInit: function() {
@@ -79,5 +92,13 @@ const contractEvents = {
         let e = document.getElementById('regio');
         let regio = e.options[e.selectedIndex].value;
         let ether = document.getElementById('ether').value;
+        
+        
+    },
+    
+    test: function() {
+        this.contractInstance.checkRecent("test", function (error, value) {
+            console.log(error, value);
+        })
     }
 }
