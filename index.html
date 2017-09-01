@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Parkeren</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+<head>
+    <title>Parkeren</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css"/>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
-        <script src="js/main.js"></script>
-    </head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.js"></script>
+    <script src="js/main.js"></script>
+</head>
 <body>
 
-<h1>Parkeren</h1>
-<form id="parking" method="get" onsubmit="return false">
-    Licenseplate:
-    <input type="text" id="plate"><br>
-    Regio:
-    <select id="regio">
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select><br>
-    Wei: 
-    <input type="number" id="wei"><br>
-    <input type="submit" id="submitBtn">
-</form>
-<p>Test4</p>
+<div class="ui attached stackable menu">
+    <div class="ui container">
+        <a class="item" href="index.html">
+            <i class="home icon"></i>
+            <p>Home</p>
+        </a>
+    </div>
+</div>
+
+<div class="ui container">
+    <br>
+
+    <div class="ui segment">
+        <form class="ui form" id="parking" method="get" onsubmit="return false">
+            <div class="field">
+                Licenseplate:
+                <input type="text" id="plate">
+            </div>
+            <input type="text" id="plateEnc">
+            <div class="field">
+                Regio:
+                <select class="ui fluid dropdown" id="regio">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <div class="field">
+                Wei:
+                <input type="number" id="wei">
+            </div>
+            <button class="ui button" type="submit" id="submitBtn">Submit</button>
+            <div class="ui message submitResult"></div>
+        </form>
+    </div>
+
+    <div class="ui segment">
+        <form class="ui form" id="check" method="get" onsubmit="return false">
+            <div class="field">
+                Licenseplate:
+                <input type="text" id="plateCheck">
+            </div>
+            <button class="ui button" type="submit" id="submitBtn2">Submit</button>
+            <div class="ui message submitResult2"></div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+
 </body>
 </html>
